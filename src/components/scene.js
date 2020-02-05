@@ -102,8 +102,18 @@ class Scene extends React.Component {
     Render.run(render);
 
     window.addEventListener("resize", function(){
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+    });
+
+    let textCursor = document.querySelector('.cursor__text');
+
+    window.addEventListener('mousemove', function(e){
+        textCursor.style.display = "block"
+        textCursor.style.top = e.pageY + 20 +'px'
+        textCursor.style.left = e.pageX + 20 +'px'
+
+        document.body.style.cursor = 'url("https://www.picpng.com/uploads/Point_Hand_Cursor_Mac_Click_82395.png"), auto';
     });
 
     this.setState({
@@ -121,9 +131,7 @@ class Scene extends React.Component {
     Matter.Engine.clear(this.state.render.engine)
 
     render.canvas.remove();
-    this.setState({
-        render: null
-    })
+    
   }
 
   render() {
