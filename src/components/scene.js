@@ -122,15 +122,12 @@ class Scene extends React.Component {
 
   componentWillUnmount() {
     const world = this.state.render.engine.world
-    const render = this.state.render
     const body = world.bodies[0]
     
     Matter.World.remove(world, body)
     Matter.World.clear(world);
-    Matter.Engine.clear(this.state.render.engine)
 
-    render.canvas.remove();
-    
+    document.getElementsByTagName('canvas')[0].remove();
   }
 
   render() {
