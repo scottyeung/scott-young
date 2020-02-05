@@ -4,7 +4,9 @@ import Matter from "matter-js";
 class Scene extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        render: null
+    };
   }
 
   componentDidMount() {
@@ -53,7 +55,7 @@ class Scene extends React.Component {
     ]);
 
     let stack = Composites.stack(20, 0, 10, 8, 10, 10, function(x, y) {
-        return Bodies.circle(x, y, Common.random(15, 30), { restitution: 0.6, friction: 0.1, fillStyle: ['#EA1070', '#EAC03C', '#25DDBC', '#007DB0', '#252B7F', '#FF6040'][Math.round(Math.random() * 6 - 0.5)] });
+        return Bodies.circle(x, y, Common.random(15, 30), { restitution: 0.6, friction: 0.1, fillStyle: ['#fff'] });
     });
     
     World.add(world, [
@@ -108,11 +110,18 @@ class Scene extends React.Component {
     //     canvas.width = window.innerWidth;
     //     canvas.height = window.innerHeight;
     // });
+    this.setState({
+        render: render
+    })
   }
 
   componentWillUnmount() {
-      let canvas = document.getElementsByTagName('canvas')[0]
-      canvas.remove();
+    const world = this.state.render.engine.world
+    const body = world.bodies[0]
+    
+    Matter.World.remove(world, body)
+
+    document.getElementsByTagName('canvas')[0].remove()
   }
 
   render() {
