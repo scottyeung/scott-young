@@ -30,7 +30,7 @@ class Scene extends React.Component {
 
     // create renderer
     let render = Render.create({
-        element: document.body,
+        element: document.getElementById('___gatsby'),
         engine: engine,
         options: {
             wireframes: false,
