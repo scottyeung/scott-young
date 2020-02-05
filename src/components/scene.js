@@ -109,12 +109,10 @@ class Scene extends React.Component {
     let textCursor = document.querySelector('.cursor__text');
 
     window.addEventListener('mousemove', function(e){
-        if(window.innerWidth > 768)
-            textCursor.style.display = "block"
+        textCursor.style.display = ( window.innerWidth > 768 ? "block" : "none" );
         textCursor.style.top = e.pageY + 20 +'px'
         textCursor.style.left = e.pageX + 20 +'px'
 
-        document.body.style.cursor = 'url("https://www.picpng.com/uploads/Point_Hand_Cursor_Mac_Click_82395.png"), auto';
     });
 
     this.setState({
