@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import Matter from "matter-js";
 
 class Scene extends React.Component {
@@ -97,6 +96,13 @@ class Scene extends React.Component {
     Engine.run(engine);
 
     Render.run(render);
+
+    let canvas = document.getElementsByTagName('canvas')[0]
+
+    window.addEventListener("resize", function(){
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
 
     // window.addEventListener("resize", function(){
     //     canvas.width = window.innerWidth;
