@@ -121,6 +121,9 @@ class Scene extends React.Component {
     Matter.Engine.clear(this.state.render.engine)
 
     render.canvas.remove();
+    this.setState({
+        render: null
+    })
   }
 
   render() {
