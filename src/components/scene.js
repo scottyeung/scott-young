@@ -109,7 +109,8 @@ class Scene extends React.Component {
     let textCursor = document.querySelector('.cursor__text');
 
     window.addEventListener('mousemove', function(e){
-        textCursor.style.display = "block"
+        if(window.innerWidth > 768)
+            textCursor.style.display = "block"
         textCursor.style.top = e.pageY + 20 +'px'
         textCursor.style.left = e.pageX + 20 +'px'
 
