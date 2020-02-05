@@ -31,7 +31,7 @@ class Scene extends React.Component {
 
     // create renderer
     let render = Render.create({
-        element: document.getElementById('___gatsby'),
+        element: document.body,
         engine: engine,
         options: {
             wireframes: false,
@@ -54,8 +54,8 @@ class Scene extends React.Component {
         Bodies.rectangle(400, 600, 1200, 0.1, { isStatic: true })
     ]);
 
-    let stack = Composites.stack(20, 0, 10, 8, 10, 10, function(x, y) {
-        return Bodies.circle(x, y, Common.random(15, 30), { restitution: 0.6, friction: 0.1, fillStyle: ['#fff'] });
+    let stack = Composites.stack(20, 0, 10, 5, 10, 10, function(x, y) {
+        return Bodies.circle(x, y, Common.random(15, 30), { restitution: 0.6, friction: 0.1, fillStyle: ['#FAED1B', '#CECECE', '#39503F', '#E15975', '#000000', '#996C19'][Math.round(Math.random() * 6 - 0.5)] });
     });
     
     World.add(world, [
@@ -99,17 +99,11 @@ class Scene extends React.Component {
 
     Render.run(render);
 
-    let canvas = document.getElementsByTagName('canvas')[0]
-
     window.addEventListener("resize", function(){
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        render.canvas.width = window.innerWidth;
+        render.canvas.height = window.innerHeight;
     });
 
-    // window.addEventListener("resize", function(){
-    //     canvas.width = window.innerWidth;
-    //     canvas.height = window.innerHeight;
-    // });
     this.setState({
         render: render
     })
@@ -117,11 +111,14 @@ class Scene extends React.Component {
 
   componentWillUnmount() {
     const world = this.state.render.engine.world
+    const render = this.state.render
     const body = world.bodies[0]
     
     Matter.World.remove(world, body)
+    Matter.World.clear(world);
+    Matter.Engine.clear(this.state.render.engine)
 
-    document.getElementsByTagName('canvas')[0].remove()
+    render.canvas.remove();
   }
 
   render() {
