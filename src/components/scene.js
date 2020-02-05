@@ -43,6 +43,8 @@ class Scene extends React.Component {
         }
     });
 
+    let canvas = document.getElementsByTagName('canvas')[0]
+
     Render.run(render);
 
     // create runner
@@ -100,8 +102,8 @@ class Scene extends React.Component {
     Render.run(render);
 
     window.addEventListener("resize", function(){
-        render.canvas.width = window.innerWidth;
-        render.canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 
     this.setState({
