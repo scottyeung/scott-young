@@ -3,8 +3,10 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: `Scott Young`,
+    siteUrl: `https://parodybiz.co.uk`
   },
   plugins: [
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
