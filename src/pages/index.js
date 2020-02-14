@@ -9,6 +9,9 @@ const IndexPage = ({ data: { home } }) => (
     <p className="cursor__text">status - busy yet available</p>
     <Scene />
     <Img fluid={home.cheekyLogo.fluid} className="home__image" />
+    <a href={home.externalLink} className="home__link">
+      <Img fluid={home.bubble.fluid} className="home__image" />
+    </a>
   </Layout>
 )
 
@@ -17,9 +20,15 @@ export default IndexPage
 export const query = graphql`
   query IndexQuery {
     home: datoCmsHome {
-        cheekyLogo {
-          fluid(imgixParams: { fm: "jpg", auto: "compress" }) {
-            ...GatsbyDatoCmsSizes
+      externalLink
+      cheekyLogo {
+        fluid(imgixParams: { fm: "jpg", auto: "compress" }) {
+          ...GatsbyDatoCmsSizes
+        }
+      }
+      bubble {
+        fluid(imgixParams: { fm: "png", auto: "compress" }) {
+          ...GatsbyDatoCmsSizes
         }
       }
     }
