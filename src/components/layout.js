@@ -4,6 +4,7 @@ import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
 import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import { isMobile } from 'react-device-detect'
 
 import "../styles/index.sass";
 
@@ -73,8 +74,9 @@ const TemplateWrapper = ({ children }) => {
                   <Link to="/works">Work</Link>
                 </li>
               </ul>
+
               <li className="dark__toggle">
-                <ThemeToggler>
+                { !isMobile && <ThemeToggler>
                   {({ theme, toggleTheme }) => (
                     <label>
                       <input
@@ -86,6 +88,7 @@ const TemplateWrapper = ({ children }) => {
                     </label>
                   )}
                 </ThemeToggler>
+                }
                 </li>
             </div>
           </div>
