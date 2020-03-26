@@ -106,14 +106,14 @@ class Scene extends React.Component {
         canvas.height = window.innerHeight
     });
 
-    let textCursor = document.querySelector('.cursor__text');
+    // let textCursor = document.querySelector('.cursor__text');
 
-    window.addEventListener('mousemove', function(e){
-        textCursor.style.display = ( window.innerWidth > 768 ? "block" : "none" );
-        textCursor.style.top = e.pageY + 20 +'px'
-        textCursor.style.left = e.pageX + 20 +'px'
+    // window.addEventListener('mousemove', function(e){
+    //     textCursor.style.display = ( window.innerWidth > 768 ? "block" : "none" );
+    //     textCursor.style.top = e.pageY + 20 +'px'
+    //     textCursor.style.left = e.pageX + 20 +'px'
 
-    });
+    // });
 
     this.setState({
         render: render

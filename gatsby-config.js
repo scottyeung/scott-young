@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-dark-mode`,
     {
       resolve: `gatsby-source-datocms`,
       options: {
