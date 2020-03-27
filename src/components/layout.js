@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
-import { isMobile } from 'react-device-detect'
+// import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+// import { isMobile } from 'react-device-detect'
 
 import "../styles/index.sass";
 
@@ -75,7 +75,7 @@ const TemplateWrapper = ({ children }) => {
                 </li>
               </ul>
 
-              <li className="dark__toggle">
+              {/* <li className="dark__toggle">
                 { !isMobile && <ThemeToggler>
                   {({ theme, toggleTheme }) => (
                     <label>
@@ -89,7 +89,7 @@ const TemplateWrapper = ({ children }) => {
                   )}
                 </ThemeToggler>
                 }
-                </li>
+                </li> */}
             </div>
           </div>
           <div className="container__body">
