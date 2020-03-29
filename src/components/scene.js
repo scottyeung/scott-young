@@ -1,18 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Matter from "matter-js";
 
-class Scene extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        render: null
-    };
-  }
+const Scene = () => {
+  
+  const canvasEl = useRef(null)
 
-  componentDidMount() {
-    Matter.use(
-        'matter-wrap'
-    );
+  useEffect(() => {
+    
     
     let Engine = Matter.Engine,
         Render = Matter.Render,
@@ -115,23 +109,17 @@ class Scene extends React.Component {
 
     // });
 
-    this.setState({
-        render: render
-    })
-  }
-
-  componentWillUnmount() {
-    const world = this.state.render.engine.world
-    const body = world.bodies[0]
+    return () => {
+        const world = render.engine.world
+        const body = world.bodies[0]
+        
+        Matter.World.remove(world, body)
+        Matter.World.clear(world);
     
-    Matter.World.remove(world, body)
-    Matter.World.clear(world);
+        document.getElementsByTagName('canvas')[0].remove();
+    }
+  },[])
 
-    document.getElementsByTagName('canvas')[0].remove();
-  }
-
-  render() {
-    return <div ref="scene" />;
-  }
+  return <div ref={canvasEl} />;
 }
 export default Scene;
