@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
+import useDarkMode from "use-dark-mode"
+
 // import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 // import { isMobile } from 'react-device-detect'
 
@@ -10,6 +12,10 @@ import "../styles/index.sass";
 
 const TemplateWrapper = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const darkMode = useDarkMode(false);
+  // const handleTheme = theme => theme === "dark" ? darkMode.enable() : darkMode.disable();
+
   return (
     <StaticQuery
       query={graphql`
@@ -75,21 +81,16 @@ const TemplateWrapper = ({ children }) => {
                 </li>
               </ul>
 
-              {/* <li className="dark__toggle">
-                { !isMobile && <ThemeToggler>
-                  {({ theme, toggleTheme }) => (
+              <li className="dark__toggle">
                     <label>
                       <input
                         type="checkbox"
-                        onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
-                        checked={theme === 'dark'}
+                        onChange={darkMode.toggle}
+                        checked={darkMode.value}
                       />{' '}
                       🌓
                     </label>
-                  )}
-                </ThemeToggler>
-                }
-                </li> */}
+                </li>
             </div>
           </div>
           <div className="container__body">

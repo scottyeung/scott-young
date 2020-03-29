@@ -1,5 +1,5 @@
-body
-  --bg: white;
+body.light-mode
+  background-color: white;
   --textNormal: #222;
   --textTitle: #222;
   --textLink: blue;
@@ -7,9 +7,9 @@ body
   background-color: var(--bg);
 
 
-body.dark 
+body.dark-mode 
   -webkit-font-smoothing: antialiased;
-  --bg: black;
+  background-color: black;
   --textNormal: rgba(255, 255, 255, 0.88);
   --textTitle: white;
   --textLink: yellow;
@@ -17,6 +17,10 @@ body.dark
 
 input[type = checkbox] 
   display: none;
+
+@media screen and (max-width: 900px)
+  .dark__toggle
+    display: none
 
 .dark__toggle 
     font-size: 2.3rem;
