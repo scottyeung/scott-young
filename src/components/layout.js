@@ -52,11 +52,7 @@ const TemplateWrapper = ({ children }) => {
       render={data => (
         <div 
           className={`container ${showMenu ? "is-open" : ""}`}
-          style={{
-          backgroundColor: 'var(--bg)',
-          color: 'var(--textNormal)',
-          transition: 'color 0.2s ease-out, background 0.2s ease-out',
-        }}>
+        >
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}

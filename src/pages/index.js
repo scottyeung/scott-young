@@ -21,7 +21,7 @@ export const query = graphql`
     home: datoCmsHome {
       externalLink
       cheekyLogo {
-        fluid(imgixParams: { fm: "jpg", auto: "compress" }) {
+        fluid(imgixParams: { fm: "png", auto: "compress" }) {
           ...GatsbyDatoCmsSizes
         }
       }
