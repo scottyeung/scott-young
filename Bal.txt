@@ -1,0 +1,31 @@
+{
+  "error": {
+    "code": "parameter_unknown",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-unknown",
+    "message": "Received unknown parameter: limit",
+    "param": "limit",
+    "type": "invalid_request_error"
+  }
+}
+{
+  "object": "balance",
+  "available": [
+    {
+      "amount": 0,
+      "currency": "eur",
+      "source_types": {
+        "card": 0
+      }
+    }
+  ],
+  "livemode": true,
+  "pending": [
+    {
+      "amount": 46931,
+      "currency": "eur",
+      "source_types": {
+        "card": 46931
+      }
+    }
+  ]
+}
